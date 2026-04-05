@@ -18,4 +18,37 @@ jobs:
                 echo "ORG_MESSAGE = ${{ vars.ORG_MESSAGE }}"
                 echo "REPO_MESSAGE = ${{ vars.REPO_MESSAGE }}"
                 echo "ENV_MESSAGE = ${{ vars.ENV_MESSAGE }}"
-                echo "WORKFLOW_MESSAGE = $WORKFLOW_MESSAGE "
+                echo "WORKFLOW_MESSAGE = $WORKFLOW_MESSAGE"
+
+            - name: print github context
+              run: echo '${{ toJSON(github) }}'
+
+            - name: print env context
+              run: echo '${{ toJSON(env) }}'
+
+            - name: print vars context
+              run: echo '${{ toJSON(vars) }}'
+
+            - name: print job context
+              run: echo '${{ toJSON(job) }}'
+
+            - name: print steps context
+              run: echo '${{ toJSON(steps) }}'
+
+            - name: print runner context
+              run: echo '${{ toJSON(runner) }}'
+
+            - name: print secrets context
+              run: echo '${{ toJSON(secrets) }}'
+
+            - name: print strategy context
+              run: echo '${{ toJSON(strategy) }}'
+
+            - name: print matrix context
+              run: echo '${{ toJSON(matrix) }}'
+
+            - name: print needs context
+              run: echo '${{ toJSON(needs) }}'
+
+            - name: print inputs context
+              run: echo '${{ toJSON(inputs) }}'
