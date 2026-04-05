@@ -1,0 +1,21 @@
+---
+name: Print variables Demo
+
+on:
+    workflow_dispatch:
+
+env:
+    WORKFLOW_MESSAGE: Hello from workflow YAML level
+
+jobs:
+    print-vars:
+        runs-on: ubuntu-latest
+        environment: dev
+
+        steps:
+            - name: print variables
+              run: |
+                echo "ORG_MESSAGE = ${{ vars.ORG_MESSAGE }}"
+                echo "REPO_MESSAGE = ${{ vars.REPO_MESSAGE }}"
+                echo "ENV_MESSAGE = ${{ vars.ENV_MESSAGE }}"
+                echo "WORKFLOW_MESSAGE = $WORKFLOW_MESSAGE "
